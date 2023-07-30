@@ -1,5 +1,20 @@
+:root {
+
+  --bg-color:#164e63;
+  --dark-color:#083344;
+ --third-color:#fb7185;
+ --line-color:#0e7490;
+}
+
+body{
+  background-color: var(--dark-color);
+}
 .App {
+  display: flex;
   text-align: center;
+  box-sizing: border-box;
+
+  
 }
 
 .App-logo {
@@ -49,3 +64,108 @@
   font-size: 1.2rem;
   margin: 1rem;
 }
+
+.NavLink:hover{
+
+  background-color:var(--dark-color);
+  
+
+  
+}
+
+.sideBar{
+
+  width: 200px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  overflow-y: auto;
+}
+.left-sideB{
+
+left: 0;
+flex-direction: column;
+width: 28rem;
+background-color: var(--bg-color);
+text-align: right;
+
+}
+.right-sideB{
+
+  right: 0;
+  flex-direction: column;
+width: 28rem;
+background-color: var(--bg-color);
+text-align: left;
+
+}
+.mainBody{
+
+ 
+  height: 100%;
+ 
+width: 100%;
+  margin: auto;
+  text-align: center;
+  background-color:inherit;
+  
+}
+.SearchContainer{
+  position: relative;
+}
+.search-result.visible{
+
+
+  display: block;
+  position:absolute;
+}
+.search-result{
+
+  display: block;
+  position: absolute;
+}
+hr{
+
+  border: 0.1px solid var(--bg-color);
+}
+.mainDivHome{
+
+
+  padding:1rem;
+  padding-top: 1rem;
+  color: white;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  width:50rem;
+}
+.heart-button {
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  border: none;
+  position: relative;
+  transform: rotate(45deg);
+  cursor: pointer;
+  outline: none;
+}
+
+.heart-button:before,
+.heart-button:after {
+  content: '';
+  width: 20px;
+  height: 20px;
+  background-color:red;
+  border-radius: 50%;
+  position: absolute;
+}
+
+.heart-button:before {
+  top: -10px;
+  left: 0;
+}
+.heart-button:after {
+  top: 0;
+  left: -10px;
+}
+

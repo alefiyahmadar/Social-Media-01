@@ -11,13 +11,19 @@ export const posts = [
     _id: uuid(),
     id:0,
     content:
-      "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
+      "At Peace.",
     likes: {
       likeCount: 0,
-      likedBy: [],
+      likedBy: ["shubhamsoni"  , "sohamshah"],
       dislikedBy: [],
     },
     username: "adarshbalika",
+    firstName: "Adarsh",
+    lastName: "Balika",
+    follow:false,
+    isLiked:false,
+    isBookMarked:false,
+    
     date:"12 May 2023",
     createdAt: formatDate(),
     updatedAt: formatDate(),
@@ -25,7 +31,7 @@ export const posts = [
       {
         _id: uuid(),
         username: "shubhamsoni",
-        text: "Interesting",
+        text: "Wonderful!",
         votes: {
           upvotedBy: [],
           downvotedBy: [],
@@ -34,7 +40,7 @@ export const posts = [
       {
         _id: uuid(),
         username: "sohamshah",
-        text: "Wow!",
+        text: "Gracias!!",
         votes: {
           upvotedBy: [],
           downvotedBy: [],
@@ -49,11 +55,16 @@ export const posts = [
       "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
     likes: {
       likeCount: 0,
-      likedBy: [],
+      likedBy: ["sohamshah" ,"adarshbalika" ],
       dislikedBy: [],
     },
     username: "shubhamsoni",
-    date:"21 june 2023",
+    firstName: "Shubham",
+    lastName: "Soni",
+    follow:false,
+    date:"21/03/2023",
+    isLiked:true,
+    isBookMarked:false,
 
     comments: [
       {
@@ -82,18 +93,24 @@ export const posts = [
     id:2,
     content:
       "Up and Above",
+      isLiked:false,
+      isBookMarked:false,
     likes: {
       likeCount: 0,
-      likedBy: [],
+      likedBy: ["sohamshah"],
       dislikedBy: [],
     },
     username: "sohamshah",
-    date:"1 july 2023",
+    firstName: "Soham",
+    lastName: "Shah",
+
+    follow:false,
+    date:"1/08/2023",
     comments: [
       {
         _id: uuid(),
         username: "shubhamsoni",
-        text: "Interesting",
+        text: "Cool!",
         votes: {
           upvotedBy: [],
           downvotedBy: [],
@@ -102,7 +119,7 @@ export const posts = [
       {
         _id: uuid(),
         username: "sohamshah",
-        text: "Wow!",
+        text: "lets go!",
         votes: {
           upvotedBy: [],
           downvotedBy: [],
@@ -119,13 +136,18 @@ export const posts = [
     id:3,
     content:
       "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores  repellat.",
+      isLiked:false,
+      isBookMarked:false,
     likes: {
       likeCount: 0,
-      likedBy: [],
+      likedBy: ["sohamshah" ,"shubhamsoni" ],
       dislikedBy: [],
     },
     username: "adarshbalika",
-    date:"22 May 2023",
+    firstName: "Adarsh",
+    lastName: "Balika",
+    follow:false,
+    date:"22/05/2023",
     createdAt: formatDate(),
     updatedAt: formatDate(),
     comments: [
@@ -154,13 +176,18 @@ export const posts = [
     id:4,
     content:
       "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id llat.",
+      isLiked:true,
+      isBookMarked:false,
     likes: {
       likeCount: 0,
-      likedBy: [],
+      likedBy: ["sohamshah" , "adarshbalika" , "shubhamsoni"],
       dislikedBy: [],
     },
     username: "shubhamsoni",
-    date:"23 june 2023",
+    firstName: "Shubham",
+    lastName: "Soni",
+    follow:false,
+    date:"23/11/2023",
 
     comments: [
       {
@@ -175,7 +202,7 @@ export const posts = [
       {
         _id: uuid(),
         username: "sohamshah",
-        text: "Interesting!",
+        text: "Nice!",
         votes: {
           upvotedBy: [],
           downvotedBy: [],
@@ -189,13 +216,18 @@ export const posts = [
     id:5,
     content:
       "Had an amazing brunch at Holleys",
+      isLiked:false,
+      isBookMarked:false,
     likes: {
       likeCount: 0,
-      likedBy: [],
+      likedBy: ["shubhamsoni"],
       dislikedBy: [],
     },
     username: "sohamshah",
-    date:"4 july 2023",
+    firstName: "Soham",
+    lastName: "Shah",
+    follow:false,
+    date:"4/12/2023",
     comments: [
       {
         _id: uuid(),
@@ -209,7 +241,7 @@ export const posts = [
       {
         _id: uuid(),
         username: "sohamshah",
-        text: "Wow!",
+        text: "Delicious!",
         votes: {
           upvotedBy: [],
           downvotedBy: [],
@@ -219,6 +251,77 @@ export const posts = [
     createdAt: formatDate(),
     updatedAt: formatDate(),
 
+  },{
+
+    _id: uuid(),
+    id:6,
+    content:
+      "Went out for dinner at Chili's Hyderabad. The taste reminds me of back home in Autralia.",
+      isLiked:false,
+      isBookMarked:false,
+    likes: {
+      likeCount: 0,
+      likedBy: ["shubhamsoni"],
+      dislikedBy: [],
+    },
+    username: "maryjane", 
+    firstName: "Mary",
+    lastName: "Jane",
+    follow:false,
+    date:"29/12/2023",
+    comments: [
+      {
+        _id: uuid(),
+        username: "shubhamsoni",
+        text: "Yumm",
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+      },
+    ],
+    createdAt: formatDate(),
+    updatedAt: formatDate(),
+
+  },{
+    _id: uuid(),
+    id:7,
+    content:
+      "Must try of this week: Vada Pao from SK Vadewale in Pune. The taste is absolutely mind-boggling and fresh.",
+      isLiked:false,
+      isBookMarked:false,
+    likes: {
+      likeCount: 0,
+      likedBy: ["shubhamsoni"],
+      dislikedBy: [],
+    },
+    username: "maryjane",
+    firstName: "Mary",
+    lastName: "Jane",
+    follow:false,
+    date:"31/12/2023",
+    comments: [
+      {
+        _id: uuid(),
+        username: "shubhamsoni",
+        text: "An emotion",
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [], },
+        },{
+
+          _id: uuid(),
+          username: "sohamshah",
+          
+          text: "On my wayyy",
+          votes: {
+            upvotedBy: [],
+            downvotedBy: [], },
+
+        }
+      ],
+      createdAt: formatDate(),
+      updatedAt: formatDate(),
   }
 ];
 

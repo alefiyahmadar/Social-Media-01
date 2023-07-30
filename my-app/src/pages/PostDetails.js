@@ -2,48 +2,46 @@ import { useContext } from "react"
 import { useParams , NavLink } from "react-router-dom"
 
 import { MediaContext } from "../context/contextProvider"
+import { HomeCard } from "../all-cards/homeCard"
 
 export const PostDetail =()=>{
 
 
     const {postId} = useParams()
-    const {post} = useContext(MediaContext)
     
-    const getPost = post.filter((element) =>element.id === postId)
+    const {   updatedPost} = useContext(MediaContext)
+    const {arr , setArr } = useContext(MediaContext)
     
 
+    console.log(arr)
+    
+    
+    const getPost =  arr.filter((element) => Number(element.id) === Number(postId))
+    
+    
+    
+
+    
     return(
-        <div>
-            <h2>Single Post</h2>
+        <div style={{width:"100%" , margin:"auto" , padding:"1rem" , }}>
+           
+            
+          <div >
+    
 
             {
-                getPost.map((element)=>{
+                getPost.map((element)=><HomeCard {...element} singlePost  />
 
-                 const   {id ,content ,likes:{likeCount , likedBy , dislikedBy} , username , comments ,createdAt , updatedAt , date
-                } =element
-
-                return(
-                    <div>
-                         <NavLink to={`/profile/${username}`}>{username}</NavLink>
-                        <p><h2>{content}</h2> {date}</p>
-                        <p>{likeCount} Likes   {comments.length} Comments</p>
-                       
-                        {
-                            comments.map((e)=>
-                                <div key={e._id}>
-                                    <p>{e.username}</p>
-                                    <h3>{e.text}</h3>
-                                </div>
-                            )
-                        }
-                    </div>
+                
+            
                 )
 
-                    
-                }
-                )
+
             
             }
+            </div>
+    
+
 
 
 
