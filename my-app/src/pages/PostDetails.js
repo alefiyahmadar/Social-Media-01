@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import { useParams , NavLink } from "react-router-dom"
+import { useParams  } from "react-router-dom"
 
 import { MediaContext } from "../context/contextProvider"
 import { HomeCard } from "../all-cards/homeCard"
@@ -9,11 +9,10 @@ export const PostDetail =()=>{
 
     const {postId} = useParams()
     
-    const {   updatedPost} = useContext(MediaContext)
-    const {arr , setArr } = useContext(MediaContext)
+ 
+    const {arr  } = useContext(MediaContext)
     
 
-    console.log(arr)
     
     
     const getPost =  arr.filter((element) => Number(element.id) === Number(postId))

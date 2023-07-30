@@ -9,8 +9,8 @@ export const LoginPage = ()=>{
 
     const navigate = useNavigate()
 
-    const {arr , setArr , usersArr} = useContext(MediaContext)
-    const {userLoggedIn , setUserLoggedIn , isLoggedIn , setIsLoggedIn} =useContext(MediaContext)
+    const { setArr } = useContext(MediaContext)
+    const {userLoggedIn , setUserLoggedIn  , setIsLoggedIn} =useContext(MediaContext)
 
 
 const GuestModeHandler = ()=>{

@@ -1,35 +1,31 @@
 import { useContext, useState } from "react"
 import { NavLink, useNavigate } from "react-router-dom"
-import { v4 as uuid } from "uuid";
+
 import { MediaContext } from "../context/contextProvider";
 
 export const HomeCard = (element) => {
 
 
 
-    const { id, content, likes: { likeCount, likedBy, dislikedBy }, username, comments, createdAt, updatedAt, date, follow, singlePost, bookMarked, isLiked, isBookMarked ,firstName , lastName} = element
+    const { id, content, likes: { likeCount, likedBy, dislikedBy }, username, comments,  date, follow, singlePost, isLiked, isBookMarked ,firstName , lastName} = element
 
 
-    const { post, setPost } = useContext(MediaContext)
-    const { updatedPost, setUpdatedPost } = useContext(MediaContext)
     const { getFollowHandler , getUnfollowHandler } = useContext(MediaContext)
     const { arr, setArr } = useContext(MediaContext)
     
-    const { userLoggedIn , setUserLoggedIn } = useContext(MediaContext)
+    const { userLoggedIn  } = useContext(MediaContext)
 
 
-    const { bookMark, setBookMark , AddToBookmarks , RemoveBookMark  } = useContext(MediaContext)
-    const { usersArr , setUsersArr} = useContext(MediaContext)
+    const {   AddToBookmarks , RemoveBookMark  } = useContext(MediaContext)
+    const { usersArr } = useContext(MediaContext)
 
     const [showCmt, setShowCmt] = useState(false)
     const [userCmt, setUserCmt] = useState("")
 
-    const [showAllCmt, setAllCmt] = useState(false)
-    const [showLike, setShowLike] = useState(false)
     const [userMenue, setUserMenue] = useState(false)
     const [genMenue, setGenMenue] = useState(false)
     const [showEdit, setShowEdit] = useState(false)
-    const [isAdded, setIsAdded] = useState(false)
+    
 
     const [cmtHandler, setCmtHandler] = useState(false)
 
@@ -67,8 +63,7 @@ export const HomeCard = (element) => {
 
         } else {
 
-            const getUser = likedBy.push(MainUser)
-            console.log(likedBy)
+            
 
 
             setArr((prevArr) => prevArr.map((arr) => id === arr.id ? { ...arr, isLiked: !arr.isLiked, likes: { likeCount, dislikedBy, likedBy: likedBy } } : arr))
@@ -88,11 +83,7 @@ export const HomeCard = (element) => {
 
     const PostCmtHandler = (id) => {
 
-        const newCmt = comments.push({
-            _id: uuid(),
-            username: MainUser,
-            text: userCmt,
-        })
+    
 
 
         setArr((prevArr) => prevArr.map((arr) => id === arr.id ? { ...arr, comments: comments } : arr))
@@ -219,7 +210,7 @@ export const HomeCard = (element) => {
 
                
 
-                <button style={{ backgroundColor:"#083344" , border:"none" }}   onClick={commentHandler}> <img width="30" height="30" src="https://img.icons8.com/ios/50/000000/speech-bubble--v1.png" alt="speech-bubble--v1" /></button>
+                <button style={{ backgroundColor:"#083344" , border:"none" }}   onClick={commentHandler}> <img  width="30" height="30" src="https://img.icons8.com/ios/50/000000/speech-bubble--v1.png" alt="speech-bubble--v1" /></button>
                 <p style={{color:"white"}}>{comments.length} </p>
 
 
@@ -229,7 +220,7 @@ export const HomeCard = (element) => {
 
 
 
-                <button style={{ backgroundColor:"#083344" , border:"none" }}  onClick={ isBookMarked ? ()=>RemoveBookMark(element) :() => AddToBookmarks(element)}><img width="30" height="30" src={isBookMarked ? "https://img.icons8.com/ios-filled/50/000000/bookmark-ribbon.png" : "https://img.icons8.com/ios/50/000000/bookmark-ribbon--v1.png "}
+                <button style={{ backgroundColor:"#083344" , border:"none" }}  onClick={ isBookMarked ? ()=>RemoveBookMark(element) :() => AddToBookmarks(element)}><img alt="" width="30" height="30" src={isBookMarked ? "https://img.icons8.com/ios-filled/50/000000/bookmark-ribbon.png" : "https://img.icons8.com/ios/50/000000/bookmark-ribbon--v1.png "}
                 /></button>
 
 
@@ -274,7 +265,7 @@ export const HomeCard = (element) => {
 
 <div style={{margin:"auto"  }}>
             {showEdit && <div style={{display:"flex" , flexDirection:"column" ,position:"absolute", backgroundColor:"#083344"  ,padding:"1rem" , width:"25rem"   , border:"0.1px solid #0e7490" , borderRadius:"1rem"}}>
-                <input type="text" defaultValue={editText}  style={{width:"10rem" ,outline:"none", margin:"auto" , padding:"1rem" , marginBottom:"1rem" , backgroundColor:"#083344" , color:"white" , border:"none" ,fontSize:"large"}} onChange={(e) => setText(e.target.value)} />
+                <textarea type="text" defaultValue={editText}  style={{width:"100%" ,outline:"none", margin:"auto"  , backgroundColor:"#083344" , color:"white" , border:"none" ,fontSize:"large" , wordWrap:"break-word" , whiteSpace:"pre-wrap"   }} wrap="soft" onChange={(e) => setText(e.target.value)} />
                 <p style={{display:"flex" , justifyContent:"flex-end", margin:"0%" }}><button onClick={SaveEditHandler} style={{display:"flex"  , padding:"0.5rem" , backgroundColor:"#fb7185" , border:"none" , width:"20%" , justifyContent:"center" , fontWeight:"bold" , color:"white" , borderRadius:"1rem" }}>Save</button><button style={{display:"flex"  , padding:"0.5rem" , backgroundColor:"#fb7185" , border:"none" , width:"20%" , justifyContent:"center" , fontWeight:"bold" , color:"white" , borderRadius:"1rem" }} onClick={() => setShowEdit(false)}>Cancel</button></p></div>}
 </div>
 

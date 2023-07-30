@@ -38,8 +38,7 @@ export const HomePage =()=>{
 
 const getUserData = ()=>{
 
-    
-    console.log(arr)
+
 
 
     setArr((prevArr)=>prevArr.map((e)=>e.username === userLoggedIn ? {...e , follow:true} : e))

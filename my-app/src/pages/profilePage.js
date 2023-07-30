@@ -51,7 +51,7 @@ const saveProfileHandler =()=>{
 
 
     return(<div style={{width:"100%" , margin:"auto" , padding:"1rem"}}>
-        <h2>Profile</h2>
+        
 
         
         <div style={{display: userProfile === userLoggedIn ? "block" :"none"}}>
@@ -66,7 +66,7 @@ const saveProfileHandler =()=>{
                 return(<div style={{ color:"white"}}>
                 <h3>{name}</h3>
                 <p>{bio}</p>
-                <NavLink to={link}>{link}</NavLink>
+                <NavLink style={{color:"#164e63" , fontWeight:"bold"}} to={link}>{link}</NavLink>
                 
             </div>)})
         }
@@ -78,24 +78,24 @@ const saveProfileHandler =()=>{
 
 
 
-        <div style={{display:userProfile === "shubhamsoni" ? "block" : "none"}}>
+        <div style={{display:userProfile === "shubhamsoni" ? "block" : "none" , color:"white"}}>
             <h3>ShubhamSonayy</h3>
             <p>Hi Im Shubham</p>
-            <NavLink to="">PortFolio</NavLink>
+            <NavLink style={{color:"#164e63"  , fontWeight:"bold"}} to="">PortFolio</NavLink>
         </div>
-        <div style={{display : userProfile === "sohamshah" ? "block" : "none"}}>
+        <div style={{display : userProfile === "sohamshah" ? "block" : "none" , color:"white"}}>
             <h3>Soham Shah</h3>
             <p>Hey Im Soham</p>
-            <NavLink to="">Wired</NavLink>
+            <NavLink style={{color:"#164e63"  , fontWeight:"bold"}} to="">Wired</NavLink>
         </div>
-        <div style={{display : userProfile === "maryjane" ? "block" : "none"}}>
+        <div style={{display : userProfile === "maryjane" ? "block" : "none" , color:"white"}}>
             <h3>Mary Jane</h3>
             <p>Hey Mary Here</p>
-            <NavLink to="">Food</NavLink>
+            <NavLink style={{color:"#164e63"  , fontWeight:"bold"}} to="">Food</NavLink>
         </div>
         
-<div style={{display:"flex" , width:"50%" , margin:"auto" , padding:"1rem"}}>
-<button onClick={()=>setEdit(!edit)}  style={{display: userProfile === userLoggedIn ? "inline" :"none" , display:"flex" , margin:"auto" , padding:"0.5rem" , backgroundColor:"#083344" , border: " 0.1px solid #fb7185" , width:"20%" , justifyContent:"center" , fontWeight:"bold" , color:"white" , borderRadius:"1rem" }}>Edit</button>
+<div style={{display:userProfile === userLoggedIn ?"flex":"none" , width:"50%" , margin:"auto" , padding:"1rem"}}>
+<button onClick={()=>setEdit(!edit)}  style={{display: userProfile === userLoggedIn ? "flex" :"none"  , margin:"auto" , padding:"0.5rem" , backgroundColor:"#083344" , border: " 0.1px solid #fb7185" , width:"20%" , justifyContent:"center" , fontWeight:"bold" , color:"white" , borderRadius:"1rem" }}>Edit</button>
 
 <button onClick={logOutHandler} style={{display:userProfile === userLoggedIn ? "inline" :"none", display:"flex" , margin:"auto" , padding:"0.5rem" , backgroundColor:"#fb7185" , border:"none" , width:"20%" , justifyContent:"center" , fontWeight:"bold" , color:"white" , borderRadius:"1rem" }} >Log out</button>
 </div>
@@ -118,7 +118,7 @@ const saveProfileHandler =()=>{
 </div> 
 <div>
     {
-        usersArr.map((e)=> e.username === userProfile ? <button style={{display: e.username === userLoggedIn ?"none" :"inline"}} onClick={ e.follow  ? ()=>getUnfollowHandler(e.username): ()=>getFollowHandler(e.username)}>{e.follow ? "Unfollow" : "Follow"}</button> : "")
+        usersArr.map((e)=> e.username === userProfile ? <button style={{  display:userProfile === userLoggedIn?"none":"flex" , margin:"auto" , padding:"0.5rem" , backgroundColor:"#fb7185" , border:"none" , width:"10%" , marginBottom:"1rem", justifyContent:"center" , fontWeight:"bold" , color:"white" , borderRadius:"1rem" , marginTop:"1rem"}} onClick={ e.follow  ? ()=>getUnfollowHandler(e.username): ()=>getFollowHandler(e.username)}>{e.follow ? "Unfollow" : "Follow"}</button> : "")
     }
 </div>
 

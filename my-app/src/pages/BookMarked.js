@@ -1,4 +1,4 @@
-import { useContext, useState } from "react"
+import { useContext } from "react"
 import { MediaContext } from "../context/contextProvider"
 
 import { NavLink } from "react-router-dom"
@@ -31,11 +31,12 @@ console.log(bookMark)
         <div style={{width:"100%" , margin:"auto" , padding:"1rem"} }>
             <h2 style={{color:"white"}}>BookMark</h2>
 
+            
 
             {
 
-                bookMark.map((element)=>{
-                    const {id ,content ,likes:{likeCount , likedBy , dislikedBy} , username , comments ,createdAt , updatedAt , date , follow } = element
+               bookMark.length === 0 ? <h3>No BookMarks Yet</h3>: bookMark.map((element)=>{
+                    const {id ,content  , username  , date } = element
 
                     
 
@@ -71,7 +72,7 @@ console.log(bookMark)
                     
 
 
-     <button style={{marginBottom:"1rem" , marginTop:"1rem" , backgroundColor:"#083344" , border:"none"}} onClick={()=>RemoveBookMark(element)}><img width="20" height="20" src= {"https://img.icons8.com/ios-filled/50/000000/bookmark-ribbon.png"}></img></button>
+     <button style={{marginBottom:"1rem" , marginTop:"1rem" , backgroundColor:"#083344" , border:"none"}} onClick={()=>RemoveBookMark(element)}><img width="20" height="20" alt="" src= {"https://img.icons8.com/ios-filled/50/000000/bookmark-ribbon.png"}></img></button>
 
 
                 </div>)})
