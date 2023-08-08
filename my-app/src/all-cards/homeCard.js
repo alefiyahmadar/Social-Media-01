@@ -1,4 +1,5 @@
 import { useContext, useState } from "react"
+import { v4 as uuid } from "uuid";
 import { NavLink, useNavigate } from "react-router-dom"
 
 import { MediaContext } from "../context/contextProvider";
@@ -63,7 +64,7 @@ export const HomeCard = (element) => {
 
         } else {
 
-            
+            likedBy.push(MainUser)
 
 
             setArr((prevArr) => prevArr.map((arr) => id === arr.id ? { ...arr, isLiked: !arr.isLiked, likes: { likeCount, dislikedBy, likedBy: likedBy } } : arr))
@@ -86,10 +87,13 @@ export const HomeCard = (element) => {
     
 
 
-        setArr((prevArr) => prevArr.map((arr) => id === arr.id ? { ...arr, comments: comments } : arr))
+        setArr((prevArr) => prevArr.map((arr) => id === arr.id ? { ...arr, comments: [...arr.comments ,{ _id:uuid(),username:MainUser , text:userCmt} ] } : arr))
+
+
 
         setShowCmt(false)
         setUserCmt("")
+        console.log(arr)
 
 
     }
@@ -242,9 +246,16 @@ export const HomeCard = (element) => {
 
 
             }{
-                singlePost && comments.map((e) => <div key={e.id} style={{display: "flex", justifyContent: "center"  , width:"100%"  , backgroundColor:"#083344"  ,flexDirection:"column" }}>
+                singlePost && comments.map((e) => {
+
+                   
+
+
+
+                return(
+                <div key={e.id} style={{display: "flex", justifyContent: "center"  , width:"100%"  , backgroundColor:"#083344"  ,flexDirection:"column" }}>
                 <p style={{ display:"block", marginBlock:"0%"  }}>
-                    <button onClick={() => setCmtHandler(!cmtHandler)} style={{ display: e.username === MainUser ? "flex" : "none" , float:"right" , backgroundColor:"#083344" , border:"none" ,marginBlock:"0%" }}><img width="25" height="25" src="https://img.icons8.com/sf-black/64/000000/horizontal-line.png" alt="horizontal-line"/></button>
+                    <button onClick={() =>setCmtHandler(!cmtHandler)} style={{ display: e.username === MainUser ? "flex" : "none" , float:"right" , backgroundColor:"#083344" , border:"none" ,marginBlock:"0%" }}><img width="25" height="25" src="https://img.icons8.com/sf-black/64/000000/horizontal-line.png" alt="horizontal-line"/></button>
 
                     
                     {
@@ -255,7 +266,7 @@ export const HomeCard = (element) => {
                     <p>{e.username}</p>
                 </p>
                 <h3 style={{marginBlockStart:"0%" }}>{e.text}</h3>
-            </div>)
+            </div>)})
             }
             
           

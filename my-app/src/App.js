@@ -102,7 +102,7 @@ const filterHandler =(e)=>{
                   
                   {
                     searchHand.map((e)=><div   className={`search-result${searchVisible ? "visible" :""}`} >
-                      <p style={{marginBlockEnd:"0%" , marginBlockStart:"0%" , paddingTop:"0.5rem" , color:"white" , fontWeight:"bold" , paddingLeft:"1rem"}}><NavLink  style={{textDecoration:"none" ,color:"white"}}>{e.firstName} {e.lastName}</NavLink></p>
+                      <p style={{marginBlockEnd:"0%" , marginBlockStart:"0%" , paddingTop:"0.5rem" , color:"white" , fontWeight:"bold" , paddingLeft:"1rem"}}><NavLink   to={`/profile/${e.username}`}  style={{textDecoration:"none" ,color:"white"}}  >{e.firstName} {e.lastName}</NavLink></p>
                       <p style={{marginBlockStart:"0%" , marginBlockEnd:"0%" , paddingBottom:"0.5rem" , color:"grey" , paddingLeft:"1rem"}}>@{e.username}</p>
                     </div>)
                   }

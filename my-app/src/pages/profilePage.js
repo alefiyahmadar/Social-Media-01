@@ -97,7 +97,7 @@ const saveProfileHandler =()=>{
 <div style={{display:userProfile === userLoggedIn ?"flex":"none" , width:"50%" , margin:"auto" , padding:"1rem"}}>
 <button onClick={()=>setEdit(!edit)}  style={{display: userProfile === userLoggedIn ? "flex" :"none"  , margin:"auto" , padding:"0.5rem" , backgroundColor:"#083344" , border: " 0.1px solid #fb7185" , width:"20%" , justifyContent:"center" , fontWeight:"bold" , color:"white" , borderRadius:"1rem" }}>Edit</button>
 
-<button onClick={logOutHandler} style={{display:userProfile === userLoggedIn ? "inline" :"none", display:"flex" , margin:"auto" , padding:"0.5rem" , backgroundColor:"#fb7185" , border:"none" , width:"20%" , justifyContent:"center" , fontWeight:"bold" , color:"white" , borderRadius:"1rem" }} >Log out</button>
+<button onClick={logOutHandler} style={{display:userProfile === userLoggedIn ? "flex" :"none" , margin:"auto" , padding:"0.5rem" , backgroundColor:"#fb7185" , border:"none" , width:"20%" , justifyContent:"center" , fontWeight:"bold" , color:"white" , borderRadius:"1rem" }} >Log out</button>
 </div>
 
 <div  style={{display : edit ? "block" :"none"}}>
