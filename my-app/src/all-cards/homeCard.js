@@ -3,6 +3,7 @@ import { v4 as uuid } from "uuid";
 import { NavLink, useNavigate } from "react-router-dom"
 
 import { MediaContext } from "../context/contextProvider";
+import { AlertMessage } from "../pages/AlertMsg";
 
 export const HomeCard = (element) => {
 
@@ -14,7 +15,7 @@ export const HomeCard = (element) => {
     const { getFollowHandler , getUnfollowHandler } = useContext(MediaContext)
     const { arr, setArr } = useContext(MediaContext)
     
-    const { userLoggedIn  } = useContext(MediaContext)
+    const { userLoggedIn ,showAlert, setShowAlert , alertMsg , setAlertMsg } = useContext(MediaContext)
 
 
     const {   AddToBookmarks , RemoveBookMark  } = useContext(MediaContext)
@@ -50,11 +51,14 @@ export const HomeCard = (element) => {
 
     const likeHandler = (id) => {
 
+  
 
 
         if (likedBy.find((e) => e === MainUser)) {
 
             const useFilter = likedBy.filter((e) => e !== MainUser)
+
+          
 
 
             setArr((prevArr) => prevArr.map((arr) => id === arr.id ? { ...arr, isLiked: !arr.isLiked, likes: { likeCount, dislikedBy, likedBy: useFilter } } : arr))
@@ -73,6 +77,7 @@ export const HomeCard = (element) => {
 
 
     }
+   
     
 
     const commentHandler = () => {
@@ -122,6 +127,9 @@ export const HomeCard = (element) => {
     }
 
     const postDeleteHandler = (id) => {
+
+        setShowAlert(true)
+        setAlertMsg("Post deleted")
 
         const useFilter = arr.filter((e) => e.id !== id)
 
@@ -275,7 +283,7 @@ export const HomeCard = (element) => {
 
 <div style={{margin:"auto"  }}>
             {showEdit && <div style={{display:"flex" , flexDirection:"column" ,position:"absolute", backgroundColor:"#083344"  ,padding:"1rem" , width:"25rem"   , border:"0.1px solid #0e7490" , borderRadius:"1rem"}}>
-                <textarea type="text" defaultValue={editText}  style={{width:"100%" ,outline:"none", margin:"auto"  , backgroundColor:"#083344" , color:"white" , border:"none" ,fontSize:"large" , wordWrap:"break-word" , whiteSpace:"pre-wrap"   }} wrap="soft" onChange={(e) => setText(e.target.value)} />
+                <textarea type="text" value={editText}  style={{width:"100%" ,outline:"none", margin:"auto"  , backgroundColor:"#083344" , color:"white" , border:"none" ,fontSize:"large" , wordWrap:"break-word" , whiteSpace:"pre-wrap"   }} wrap="soft" onChange={(e) => setText(e.target.value)} />
                 <p style={{display:"flex" , justifyContent:"flex-end", margin:"0%" }}><button onClick={SaveEditHandler} style={{display:"flex"  , padding:"0.5rem" , backgroundColor:"#fb7185" , border:"none" , width:"20%" , justifyContent:"center" , fontWeight:"bold" , color:"white" , borderRadius:"1rem" }}>Save</button><button style={{display:"flex"  , padding:"0.5rem" , backgroundColor:"#fb7185" , border:"none" , width:"20%" , justifyContent:"center" , fontWeight:"bold" , color:"white" , borderRadius:"1rem" }} onClick={() => setShowEdit(false)}>Cancel</button></p></div>}
 </div>
 
@@ -283,6 +291,7 @@ export const HomeCard = (element) => {
 
 
         </div>
+      
         </div>
     )
 

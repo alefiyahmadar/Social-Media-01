@@ -11,7 +11,7 @@ import { HomeCard } from "../all-cards/homeCard"
 export const HomePage =()=>{
   
     const {arr , setArr   , filters} =useContext(MediaContext)
-    const { userLoggedIn  , id ,SetId } = useContext(MediaContext)
+    const { userLoggedIn  , id ,SetId , alertMsg , setAlertMsg ,showAlert, setShowAlert } = useContext(MediaContext)
     const {newUser} = useContext(MediaContext)
     
 
@@ -41,6 +41,11 @@ export const HomePage =()=>{
 
 
 const addNewPostHandler =()=>{
+
+    setShowAlert(true)
+
+    setAlertMsg("New Post Added")
+
     
     let highestId = 0
 

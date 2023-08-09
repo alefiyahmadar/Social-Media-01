@@ -6,7 +6,7 @@ import {  useNavigate } from "react-router-dom";
 
 export const SignUpPage =()=>{
 
-    const {   setUserLoggedIn  ,newUser,setNewUser,   setIsLoggedIn} = useContext(MediaContext)
+    const {   setUserLoggedIn  ,newUser,setNewUser,   setIsLoggedIn , setShowAlert , setAlertMsg} = useContext(MediaContext)
 
     const { usersArr , setUsersArr} =useContext(MediaContext)
 
@@ -21,6 +21,9 @@ const signUpHandler =()=>{
     navigate("/")
     
 setIsLoggedIn(true)
+
+setShowAlert(true)
+setAlertMsg(`Welcome ${newUser.username}✨`)
 
    setUsersArr([...usersArr , newUser])
 

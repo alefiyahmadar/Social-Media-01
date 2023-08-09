@@ -11,10 +11,11 @@ import { ExplorePage } from "./pages/Explore";
 import { LoginPage } from "./pages/login";
 import { SignUpPage } from "./pages/signup";
 import { MediaContext } from "./context/contextProvider";
+import { AlertMessage } from "./pages/AlertMsg";
 
 function App() {
 
-const {isLoggedIn , usersArr , setFilter , searchHand , setSearch , logOutHandler} = useContext(MediaContext)
+const {isLoggedIn , usersArr , setFilter , searchHand , setSearch , logOutHandler ,showAlert , handleAlertClose ,alertMsg , setAlertMsg} = useContext(MediaContext)
 const {userLoggedIn} = useContext(MediaContext)
 const { getFollowHandler,getUnfollowHandler } = useContext(MediaContext)
 const [searchVisible , setVisible] = useState(false)
@@ -73,6 +74,8 @@ const filterHandler =(e)=>{
         </div>
 
         <div className="sideBar right-sideB" style={{display:isLoggedIn ? "flex" : "none"  }}>
+
+        
           
                 
     
@@ -123,6 +126,10 @@ const filterHandler =(e)=>{
             
 
 </div>
+
+{showAlert && (
+        <AlertMessage message={alertMsg} onClose={handleAlertClose} />
+      )}
 
             </div>
 

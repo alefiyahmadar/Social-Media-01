@@ -1,6 +1,7 @@
 import { useContext } from "react"
 import { MediaContext } from "../context/contextProvider"
 import { NavLink, useNavigate } from "react-router-dom"
+import { AlertMessage } from "./AlertMsg"
 
 
 
@@ -10,15 +11,19 @@ export const LoginPage = ()=>{
     const navigate = useNavigate()
 
     const { setArr , arr } = useContext(MediaContext)
-    const { setUserLoggedIn  , setIsLoggedIn , setUsersArr , newUser , setNewUser} =useContext(MediaContext)
+    const { setUserLoggedIn  , setIsLoggedIn , setUsersArr , newUser , setNewUser , showAlert , setShowAlert , handleAlertClose , alertMsg,setAlertMsg} =useContext(MediaContext)
 
 
 const GuestModeHandler = ()=>{
 
     setIsLoggedIn(true)
+
+
  
   setUserLoggedIn("adarshbalika")
    
+  setShowAlert(true)
+  setAlertMsg("Welcome adarshbalika ✨")
 
 setArr((prevArr)=>prevArr.map((e)=>e.username === "adarshbalika"? {...e , follow:true} : e) )
 setUsersArr((prevArr)=>prevArr.map((e)=>e.username ===  "adarshbalika" ? {...e , follow:true} : e))
@@ -49,6 +54,12 @@ console.log(arr)
 
 
 <p style={{color:"white"}}> Dont have an Account? <NavLink to="/signup" style={{color:"#fb7185"}}>Sign Up</NavLink></p>
+
+
+{showAlert && (
+        <AlertMessage message={alertMsg} onClose={handleAlertClose} />
+      )}
+
 
 
     </div>)

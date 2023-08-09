@@ -27,6 +27,8 @@ const [isLoggedIn , setIsLoggedIn] = useState(false)
 const [id , SetId] =useState(7)
 const [filters , setFilter] = useState("Oldest")
 const [searchHand , setSearch] = useState([]) 
+const [showAlert, setShowAlert] = useState(false);
+const [alertMsg , setAlertMsg] = useState("")
 
 const [newUser , setNewUser] = useState({
      _id:uuid(),
@@ -85,6 +87,9 @@ useEffect(()=>{
 
 const getFollowHandler = (name)=>{
 
+    setShowAlert(true)
+    setAlertMsg(`You started following ${name}`)
+
     setArr((prevArr)=>prevArr.map((e)=>e.username === name ? {...e , follow:true } : e))
     setUsersArr((prevArr)=>prevArr.map((e)=> e.username === name ? {...e , follow:true} : e))
 
@@ -94,6 +99,10 @@ const getFollowHandler = (name)=>{
 }
 
 const getUnfollowHandler = (name)=>{
+
+    setShowAlert(true)
+    setAlertMsg(`You unfollowed ${name}`)
+
     setArr((prevArr)=>prevArr.map((e)=>e.username === name ? {...e , follow:false } : e))
     setUsersArr((prevArr)=>prevArr.map((e)=> e.username === name ? {...e , follow:false} : e))
 
@@ -103,6 +112,9 @@ const getUnfollowHandler = (name)=>{
 }
 const AddToBookmarks = (element) => {
 
+    setShowAlert(true)
+
+    setAlertMsg("Post added to bookmark")
 
     setArr((prevArr) => prevArr.map((arr) => element.id === arr.id ? { ...arr, isBookMarked: true } : arr))
 
@@ -120,6 +132,12 @@ const AddToBookmarks = (element) => {
 
 const RemoveBookMark =(element)=>{
 
+    
+    setShowAlert(true)
+
+    setAlertMsg("Post removed from bookmark")
+
+
     const useFilter = bookMark.filter((e)=>e.id !== element.id)
     setArr((prevArr)=>prevArr.map((arr)=>element.content === arr.content ? {...arr ,  isBookMarked:false } : arr))
     setBookMark(useFilter)
@@ -129,6 +147,9 @@ const RemoveBookMark =(element)=>{
 
         navigate("/login")
         setIsLoggedIn(false)
+
+        setShowAlert(true)
+        setAlertMsg("Logged out")
      
         setArr((prevArr)=>prevArr.map((e)=>e.follow === true ? {...e , follow:false}: e))
         setUsersArr((prevArr)=>prevArr.map((e)=>e.follow === true ? {...e , follow:false}:e))
@@ -140,6 +161,9 @@ const RemoveBookMark =(element)=>{
     
         }
 
+        const handleAlertClose =()=>{
+            setShowAlert(false)
+        }
 
 
 
@@ -150,7 +174,7 @@ const RemoveBookMark =(element)=>{
 
 
     return(
-        <MediaContext.Provider value={{ post , updatedPost ,setUpdatedPost   , bookMark ,setBookMark  , arr , setArr , getFollowHandler,getUnfollowHandler ,  usersArr , setUsersArr ,AddToBookmarks , RemoveBookMark , userLoggedIn , setUserLoggedIn  ,newUser,setNewUser , Name ,setFirst ,lastName , setLast , UserName , setUserName , Password , setPassword , CPassword , setCPassword ,newFollow , setNewFollow , isLoggedIn , setIsLoggedIn ,id,SetId , filters , setFilter , searchHand , setSearch , logOutHandler }}>
+        <MediaContext.Provider value={{ post , updatedPost ,setUpdatedPost   , bookMark ,setBookMark  , arr , setArr , getFollowHandler,getUnfollowHandler ,  usersArr , setUsersArr ,AddToBookmarks , RemoveBookMark , userLoggedIn , setUserLoggedIn  ,newUser,setNewUser , Name ,setFirst ,lastName , setLast , UserName , setUserName , Password , setPassword , CPassword , setCPassword ,newFollow , setNewFollow , isLoggedIn , setIsLoggedIn ,id,SetId , filters , setFilter , searchHand , setSearch , logOutHandler ,showAlert , setShowAlert , handleAlertClose , alertMsg , setAlertMsg}}>
             {children}
         </MediaContext.Provider>
     )
