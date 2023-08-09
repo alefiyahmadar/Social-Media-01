@@ -1,4 +1,4 @@
-import { useContext ,useEffect,useState } from "react"
+import { useContext ,useState } from "react"
 import { v4 as uuid } from "uuid";
 import { formatDate } from "../backend/utils/authUtils";
 
@@ -10,7 +10,7 @@ import { HomeCard } from "../all-cards/homeCard"
 
 export const HomePage =()=>{
   
-    const {arr , setArr  , setUsersArr , filters} =useContext(MediaContext)
+    const {arr , setArr   , filters} =useContext(MediaContext)
     const { userLoggedIn  , id ,SetId } = useContext(MediaContext)
     const {newUser} = useContext(MediaContext)
     
@@ -34,23 +34,7 @@ export const HomePage =()=>{
 
   
     
-   
-
-const getUserData = ()=>{
-
-
-   
-    setArr((prevArr)=>prevArr.map((e)=>e.username === userLoggedIn ? {...e , follow:true} : e))
-    setUsersArr((prevArr)=>prevArr.map((e)=>e.username === userLoggedIn ? {...e , follow:true} : e))
-}
-
-
-
-useEffect(()=>{
-    
-
-
-},[getUserData])
+ 
 
 
 
