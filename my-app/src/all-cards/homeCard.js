@@ -45,7 +45,6 @@ export const HomeCard = (element) => {
     const MainUser = userLoggedIn
 
 
-    console.log(username)
 
 
 
@@ -170,7 +169,7 @@ export const HomeCard = (element) => {
 
 
     return (
-        <div style={{  borderBottom:"0.1px solid #0e7490" , margin:"auto" ,width:"50%" ,justifyContent:"left" }}>
+        <div key={id} style={{  borderBottom:"0.1px solid #0e7490" , margin:"auto" ,width:"50%" ,justifyContent:"left" }}>
             
         <button onClick={postMenueHandler} style={{   display: follow ? "flex" : "none", float:"right",  border: "none", backgroundColor: "#083344" ,margin:"auto" , justifyContent:"right" , paddingTop:"1rem" , paddingRight:"1rem" ,width:"40%" }}><img width="20" height="20" src="https://img.icons8.com/ios-glyphs/30/FFFFFF/ellipsis.png" alt="ellipsis"/></button>
             
