@@ -26,10 +26,11 @@ const [newFollow , setNewFollow] = useState(false)
 const [isLoggedIn , setIsLoggedIn] = useState(false)
 const [id , SetId] =useState(7)
 const [filters , setFilter] = useState("Oldest")
-const [searchHand , setSearch] = useState([])
+const [searchHand , setSearch] = useState([]) 
 
 const [newUser , setNewUser] = useState({
      _id:uuid(),
+
      
     firstName:Name ,
     lastName :lastName,

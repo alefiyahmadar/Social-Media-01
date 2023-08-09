@@ -9,21 +9,26 @@ export const LoginPage = ()=>{
 
     const navigate = useNavigate()
 
-    const { setArr } = useContext(MediaContext)
-    const {userLoggedIn , setUserLoggedIn  , setIsLoggedIn} =useContext(MediaContext)
+    const { setArr , arr } = useContext(MediaContext)
+    const { setUserLoggedIn  , setIsLoggedIn , setUsersArr , newUser , setNewUser} =useContext(MediaContext)
 
 
 const GuestModeHandler = ()=>{
 
     setIsLoggedIn(true)
+ 
+  setUserLoggedIn("adarshbalika")
+   
 
-    setUserLoggedIn("adarshbalika")
+setArr((prevArr)=>prevArr.map((e)=>e.username === "adarshbalika"? {...e , follow:true} : e) )
+setUsersArr((prevArr)=>prevArr.map((e)=>e.username ===  "adarshbalika" ? {...e , follow:true} : e))
 
-setArr((prevArr)=>prevArr.map((e)=>e.username === userLoggedIn ? {...e , follow:true} : e) )
+setNewUser({...newUser , firstName:"Adarsh" , lastName:"Balika"})
 
 navigate("/")
 
 }
+console.log(arr)
 
 
     return(<div style={{width:"20rem", margin:"auto" , padding:"1rem" , marginTop:"10rem" , boxSizing:"border-box",border:"solid 0.1rem #fb7185",backgroundColor:"#083344" , borderRadius:"0.5rem"}}>

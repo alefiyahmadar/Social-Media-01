@@ -34,13 +34,12 @@ export const HomePage =()=>{
 
   
     
-    
+   
 
 const getUserData = ()=>{
 
 
-
-
+   
     setArr((prevArr)=>prevArr.map((e)=>e.username === userLoggedIn ? {...e , follow:true} : e))
     setUsersArr((prevArr)=>prevArr.map((e)=>e.username === userLoggedIn ? {...e , follow:true} : e))
 }
@@ -49,10 +48,11 @@ const getUserData = ()=>{
 
 useEffect(()=>{
     
-    getUserData()
-},[])
 
-console.log(arr)
+
+},[getUserData])
+
+
 
 
 
@@ -92,7 +92,7 @@ setNewPost("")
 }
 
 
-console.log(arr)
+
 
 
 
