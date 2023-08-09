@@ -174,7 +174,7 @@ export const HomeCard = (element) => {
         <button onClick={postMenueHandler} style={{   display: follow ? "flex" : "none", float:"right",  border: "none", backgroundColor: "#083344" ,margin:"auto" , justifyContent:"right" , paddingTop:"1rem" , paddingRight:"1rem" ,width:"40%" }}><img width="20" height="20" src="https://img.icons8.com/ios-glyphs/30/FFFFFF/ellipsis.png" alt="ellipsis"/></button>
             
             
-        <div id={id} className="mainDivHome" style={{ display: follow ? "flex" : "none"  ,textAlign:"left" , padding:"1rem" , }}  >
+        <div  className="mainDivHome" style={{ display: follow ? "flex" : "none"  ,textAlign:"left" , padding:"1rem" , }}  >
 
             
            <p style={{fontWeight:"bold",marginBlockEnd:"0%" , display:"block" }}>
