@@ -159,7 +159,7 @@ export const HomeCard = (element) => {
    
     
  
-    
+    console.log(arr)
 
 
 
