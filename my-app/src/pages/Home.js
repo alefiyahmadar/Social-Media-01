@@ -12,11 +12,12 @@ export const HomePage =()=>{
   
     const {arr , setArr   , filters} =useContext(MediaContext)
     const { userLoggedIn  , id ,SetId , alertMsg , setAlertMsg ,showAlert, setShowAlert } = useContext(MediaContext)
-    const {newUser} = useContext(MediaContext)
+    const {newUser , usersArr} = useContext(MediaContext)
     
 
 
     const [newPost , setNewPost] =useState("")
+    console.log(usersArr)
     
    
 

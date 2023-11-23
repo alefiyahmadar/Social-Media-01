@@ -75,7 +75,12 @@ console.error(e.message)
 
 
 useEffect(()=>{
+  
     getData()
+    const storedUsers = localStorage.getItem('usersArray');
+    if (storedUsers) {
+      setUsersArr(JSON.parse(storedUsers));
+    }
     
    
     

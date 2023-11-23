@@ -27,7 +27,9 @@ setAlertMsg(`Welcome ${newUser.username}✨`)
 
    setUsersArr([...usersArr , newUser])
 
-   
+   const upgradedArr = [...usersArr , newUser]
+
+   localStorage.setItem("usersArray" , JSON.stringify(upgradedArr))
       
 
 
@@ -37,6 +39,7 @@ setAlertMsg(`Welcome ${newUser.username}✨`)
 
 
 }
+
 
 
 setUserLoggedIn(newUser.username)
