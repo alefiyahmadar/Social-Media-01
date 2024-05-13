@@ -1,5 +1,5 @@
 
-import { useContext } from "react" 
+import { useContext, useEffect } from "react" 
 import { MediaContext } from "../context/contextProvider"
 import {  useNavigate } from "react-router-dom";
 
@@ -17,6 +17,7 @@ export const SignUpPage =()=>{
 
 
 const signUpHandler =()=>{
+    
 
     navigate("/")
     
@@ -39,6 +40,7 @@ setAlertMsg(`Welcome ${newUser.username}✨`)
 
 
 }
+
 
 
 

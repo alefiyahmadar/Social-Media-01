@@ -2,6 +2,7 @@ import { useContext } from "react"
 import { MediaContext } from "../context/contextProvider"
 import { NavLink, useNavigate } from "react-router-dom"
 import { AlertMessage } from "./AlertMsg"
+import { users } from "../backend/db/users"
 
 
 
@@ -12,6 +13,7 @@ export const LoginPage = ()=>{
 
     const { setArr , arr } = useContext(MediaContext)
     const { setUserLoggedIn  , setIsLoggedIn , setUsersArr , newUser , setNewUser , showAlert , setShowAlert , handleAlertClose , alertMsg,setAlertMsg} =useContext(MediaContext)
+
 
 
 const GuestModeHandler = ()=>{
